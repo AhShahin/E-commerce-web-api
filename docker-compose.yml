@@ -1,0 +1,13 @@
+
+services:
+ onlinestoreCache:
+  image: redis
+
+ onlinestoredb:
+  image: mcr.microsoft.com/mssql/server    
+
+ onlinestore:
+  image: ${DOCKER_REGISTRY-}onlinestore
+  build:
+   context: .
+   dockerfile: OnlineStore/Dockerfile
